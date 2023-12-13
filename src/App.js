@@ -5,6 +5,9 @@ import CocktailDetails from './page/CocktailDetails';
 import AllCocktails from './page/AllCocktails';
 import DrinksOfCategory from './page/DrinksOfCategory';
 import AllCategories from './page/AllCategories';
+import DrinksOfIngredient from './page/DrinksOfIngredient';
+import AllGlasses from './page/AllGlasses';
+import AllIngredients from './page/AllIngredients';
 
 
 const App = () => {
@@ -16,6 +19,10 @@ const App = () => {
         <Route path="/cocktails" element={<AllCocktails />} />
         <Route path="/category/:categoryName" element={<DrinksOfCategory />} />
         <Route path="/categories" element={<AllCategories />} />
+        <Route path="/ingredient/:ingredientName" element={<DrinksOfIngredient />} />
+        <Route path="/glasses" element={<AllGlasses />} />
+        <Route path="/ingredients" element={<AllIngredients />} />
+
       </Routes>
     </BrowserRouter>
   );

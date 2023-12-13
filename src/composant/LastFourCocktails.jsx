@@ -23,8 +23,8 @@ const LastFourCocktails = () => {
                 cocktails.map((cocktail) => {
                     return (
                         <>
-                            <Link to={`/cocktail/details/${cocktail.idDrink}`}><h4>{cocktail.strDrink}</h4></Link>
-                            <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+                            <h4>{cocktail.strDrink}</h4>
+                            <Link to={`/cocktail/details/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} /></Link>
                         </>
                 )})
             ):(

@@ -13,7 +13,7 @@ const AllCategories = () => {
             const categoriesResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list");
             const categoriesResponseData = await categoriesResponse.json();
             setCategories(categoriesResponseData.drinks);
-        })(); console.log(categories);
+        })(); 
     }, []);
 
     return (
