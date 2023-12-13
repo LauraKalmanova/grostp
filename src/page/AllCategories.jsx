@@ -17,21 +17,23 @@ const AllCategories = () => {
     }, []);
 
     return (
-        <div>
+        <>
             <Header />
-            <h2>All of our categories</h2>
-                {categories ? (
-                    categories.map((category) => {
-                        return (
-                            <article>
-                                <Link to={`/category/${category.strCategory}`}><h3>{category.strCategory}</h3></Link>
-                            </article>
-                        )
-                    })) : (
-                            <p>Categories are loading</p>
-                        )}
+                <div className="allCategories">
+                <h2>All of our categories</h2>
+                    {categories ? (
+                        categories.map((category) => {
+                            return (
+                                <article>
+                                    <Link to={`/category/${category.strCategory}`}><h3>{category.strCategory}</h3></Link>
+                                </article>
+                            )
+                        })) : (
+                                <p>Categories are loading</p>
+                            )}
+                </div>
             <Footer />
-        </div>
+        </>
     )
 
 };

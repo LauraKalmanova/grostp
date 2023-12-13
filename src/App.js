@@ -8,6 +8,7 @@ import AllCategories from './page/AllCategories';
 import DrinksOfIngredient from './page/DrinksOfIngredient';
 import AllGlasses from './page/AllGlasses';
 import AllIngredients from './page/AllIngredients';
+import DrinksOfGlasses from './page/DrinksOfGlasses';
 
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
         <Route path="/ingredient/:ingredientName" element={<DrinksOfIngredient />} />
         <Route path="/glasses" element={<AllGlasses />} />
         <Route path="/ingredients" element={<AllIngredients />} />
-
+        <Route path="/glass/:glassName" element={<DrinksOfGlasses />} />
       </Routes>
     </BrowserRouter>
   );

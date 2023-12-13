@@ -19,17 +19,21 @@ const LastFourCocktails = () => {
     return (
         <div className="lastFourBox">
             <h2>Our latest four <Link to={`/cocktails`}>cocktails</Link>:</h2>
-            {cocktails ? (
-                cocktails.map((cocktail) => {
-                    return (
-                        <>
-                            <h4>{cocktail.strDrink}</h4>
-                            <Link to={`/cocktail/details/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} /></Link>
-                        </>
-                )})
-            ):(
-                <p>The latest four cocktails are loading...</p>
-            )}
+            <div className="drinkContainer">
+                {cocktails ? (
+                    cocktails.map((cocktail) => {
+                        return (
+                            <>
+                                <div key={cocktail.idDrink} className="drinkItem">
+                                    <Link to={`/cocktail/details/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} /></Link>
+                                    <h4>{cocktail.strDrink}</h4>
+                                </div>
+                            </>
+                    )})
+                ):(
+                    <p>The latest four cocktails are loading...</p>
+                )}
+            </div>
         </div>
     )
    

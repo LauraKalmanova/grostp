@@ -1,38 +1,179 @@
-.App {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav li {
+  display: inline-block;
+  margin-right: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav a:hover {
+  color: #ffcc00; 
+}
+
+.lastFourBox {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.drinkContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 800px; 
+  margin-top: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.drinkItem {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.drinkItem img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.drinkItem h4 {
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.drinkItem img:hover {
+  transform: scale(1.1);
+}
+
+.randomBox {
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.randomBox h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.randomBox h4 {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #007BFF; /* Link color */
+  transition: color 0.3s ease-in-out;
+}
+
+.randomBox h4:hover {
+  color: #0056b3; /* Change the color on hover */
+}
+
+.randomBox p {
+  margin-top: 10px;
+  color: #555;
+}
+
+.randomBox Link {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.randomBox:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* AllCocktails Component */
+.cocktailsBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.cocktailsBox article {
+  flex: 0 0 calc(20% - 20px); 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cocktailsBox img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.cocktailDetails {
+  flex: 1;
+  padding: 15px;
+}
+
+.cocktailsBox h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.allCategories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.allCategories article {
+  flex: 0 0 calc(25% - 20px); /* Adjust the width of each box */
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.allCategories h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.allCategories h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+.allCategories p {
+  margin-top: 10px;
+  color: #555;
 }

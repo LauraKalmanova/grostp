@@ -17,7 +17,7 @@ const RandomCategory = () => {
 
 
     return (
-        <div>
+        <div className="randomBox">
             <h2>One of our <Link to={`/categories`}>categories</Link> to inspire you</h2>
             {category ? (
                 <Link to={`/category/${category.strCategory}`}><h4>{category.strCategory}</h4></Link>
