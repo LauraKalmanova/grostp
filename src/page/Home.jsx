@@ -1,8 +1,7 @@
-import {useEffect, useState} from 'react';
-import LastFourCocktails from '../composant/LastFourCocktails';
-import Header from '../composant/Header';
-import Footer from '../composant/Footer';
-import RandomCategory from '../composant/RandomCategory';
+import LastFourCocktails from '../component/LastFourCocktails';
+import Header from '../component/Header';
+import Footer from '../component/Footer';
+import RandomCategory from '../component/RandomCategory';
 
 
 const Home = () => {

@@ -1,27 +1,33 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import {Link} from 'react-router-dom';
-import Header from '../composant/Header';
-import Footer from '../composant/Footer';
+import { Link } from 'react-router-dom';
+import Header from '../component/Header';
+import Footer from '../component/Footer';
 
 const CocktailDetails = () => {
-    const {id} = useParams();
+    const { id } = useParams();
 
     const [cocktail, setCocktail] = useState(null);
     const [ingredients, setIngredients] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            const cocktailsResponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id);
-            const cocktailsResponseData = await cocktailsResponse.json();
-            setCocktail(cocktailsResponseData.drinks[0]);
+        const fetchData = async () => {
+            try {
+                const cocktailsResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
 
-          
-        
-            
-          
-        })();         
-    }, []); 
+                if (!cocktailsResponse.ok) {
+                    throw new Error('Failed to fetch cocktail details');
+                }
+
+                const cocktailsResponseData = await cocktailsResponse.json();
+                setCocktail(cocktailsResponseData.drinks[0]);
+            } catch (error) {
+                console.error('Error fetching cocktail details:', error.message);
+            }
+        };
+
+        fetchData();
+    }, [id]);
 
     useEffect(() => {
         if (cocktail) {
@@ -36,36 +42,46 @@ const CocktailDetails = () => {
         }
     }, [cocktail]);
 
-   
-    
-     
+
+
+
     return (
-        <div>
+        <>
             <Header />
-                {cocktail ? (
-                    <article>
-                        <h2>{cocktail.strDrink}</h2>
+            {cocktail ? (
+                <article>
+                    <h2 className="title">{cocktail.strDrink}</h2>
+                    <div id="cocktail">
+                        <img id="cocktailImg" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
 
-                        <p>Category: <Link to={`/category/${cocktail.strCategory}`}>{cocktail.strCategory}</Link></p>
+                        <div className="cocktailInfo">
+                            <h3>Ingredients: </h3>
+                            <ul>
+                                {ingredients.map((ingredient, index) => (
+                                    <Link to={`/ingredient/${ingredient}`}>
+                                        <li key={index}>{`${ingredient}`}</li>
+                                    </Link>
+                                ))}
+                            </ul>
 
-                        <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-                        
-                        <p>Ingredients: </p>
-                        <ul>
-                            {ingredients.map((ingredient) => (
-                            <Link to={`/ingredient/${ingredient}`}><li>{`${ingredient}`}</li></Link>
-                            ))}
-                        </ul>
+                            <h3>Recipe: </h3>
+                            <p>{cocktail.strInstructions}</p>
 
-                        <p>Recipe: {cocktail.strInstructions}</p>
+                            <h3>Category: </h3>
+                            <p><Link to={`/category/${cocktail.strCategory}`}>
+                                {cocktail.strCategory}
+                            </Link>
+                            </p>
+                        </div>
+                    </div>
+                    <p id="cocktailUpdate">Last updated on: {cocktail.dateModified}</p>
 
-                        <p>Last updated on: {cocktail.dateModified}</p>
-                    </article>
-                ) : (
-                    <p>The cocktail is loading</p>
-                )}
+                </article>
+            ) : (
+                <p>The cocktail is loading</p>
+            )}
             <Footer />
-        </div>
+        </>
     )
 };
 

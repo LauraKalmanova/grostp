@@ -3,12 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './page/Home';
 import CocktailDetails from './page/CocktailDetails';
 import AllCocktails from './page/AllCocktails';
-import DrinksOfCategory from './page/DrinksOfCategory';
+import CocktailsOfCategory from './page/CocktailsOfCategory';
 import AllCategories from './page/AllCategories';
-import DrinksOfIngredient from './page/DrinksOfIngredient';
+import CocktailsOfIngredient from './page/CocktailsOfIngredient';
 import AllGlasses from './page/AllGlasses';
 import AllIngredients from './page/AllIngredients';
-import DrinksOfGlasses from './page/DrinksOfGlasses';
+import CocktailsOfGlasses from './page/CocktailsOfGlasses';
+import Search from './page/Search';
 
 
 const App = () => {
@@ -16,14 +17,15 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search/:query" element={<Search />} />
         <Route path="/cocktail/details/:id" element={<CocktailDetails />} />
         <Route path="/cocktails" element={<AllCocktails />} />
-        <Route path="/category/:categoryName" element={<DrinksOfCategory />} />
+        <Route path="/category/:categoryName" element={<CocktailsOfCategory />} />
         <Route path="/categories" element={<AllCategories />} />
-        <Route path="/ingredient/:ingredientName" element={<DrinksOfIngredient />} />
-        <Route path="/glasses" element={<AllGlasses />} />
         <Route path="/ingredients" element={<AllIngredients />} />
-        <Route path="/glass/:glassName" element={<DrinksOfGlasses />} />
+        <Route path="/ingredient/:ingredientName" element={<CocktailsOfIngredient />} />
+        <Route path="/glasses" element={<AllGlasses />} />
+        <Route path="/glass/:glassName" element={<CocktailsOfGlasses />} />
       </Routes>
     </BrowserRouter>
   );
