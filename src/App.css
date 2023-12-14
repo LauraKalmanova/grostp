@@ -170,16 +170,16 @@ button:hover {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  margin-bottom: 70px;
 }
 
 .randomBox h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 30px;
+  
 }
 
 .randomBox h4 {
-  font-size: 30px;
-  margin-top: 5px;
+  font-size: 37px;
   transition: color 0.3s ease-in-out;
 }
 
@@ -219,7 +219,6 @@ img#cocktailImg {
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 64px;
 }
 
 .cocktailInfo div {
@@ -264,7 +263,8 @@ footer p {
 /* Mobile Styles */
 @media (max-width: 768px) {
   .cocktailInfo {
-     padding-left: 0;
+    display: flex;
+    
   }
 
   #cocktail {
